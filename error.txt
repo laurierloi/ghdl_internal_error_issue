@@ -1,0 +1,73 @@
+test_op.vhd:5:8:note: analyze entity "test_op"
+../../src/ieee2008/std_logic_1164.vhdl:53:9:note: analyze package "std_logic_1164"
+../../src/std/textio.v08:19:9:note: analyze package "textio"
+../../src/std/textio.v08:19:9:note: canonicalize package "textio"
+../../src/ieee2008/std_logic_1164.vhdl:53:9:note: canonicalize package "std_logic_1164"
+../../src/ieee2008/numeric_std.vhdl:66:9:note: analyze package "numeric_std"
+../../src/ieee2008/numeric_std.vhdl:66:9:note: canonicalize package "numeric_std"
+test_op.vhd:5:8:note: canonicalize entity "test_op"
+test_op.vhd:23:14:note: analyze architecture "rtl" of "test_op"
+pixel_pkg.vhd:5:9:note: analyze package "pixel_pkg"
+pixel_pkg.vhd:5:9:note: canonicalize package "pixel_pkg"
+pixel_pkg.vhd:36:14:note: analyze package body "pixel_pkg"
+pixel_pkg.vhd:36:14:note: canonicalize package body "pixel_pkg"
+pixel_column_pkg.vhd:7:9:note: analyze package "pixel_column_pkg"
+pixel_column_pkg.vhd:7:9:note: canonicalize package "pixel_column_pkg"
+pixel_column_pkg.vhd:36:14:note: analyze package body "pixel_column_pkg"
+pixel_column_pkg.vhd:36:14:note: canonicalize package body "pixel_column_pkg"
+pixel_matrix_pkg.vhd:7:9:note: analyze package "pixel_matrix_pkg"
+pixel_matrix_pkg.vhd:7:9:note: canonicalize package "pixel_matrix_pkg"
+pixel_matrix_pkg.vhd:41:14:note: analyze package body "pixel_matrix_pkg"
+pixel_matrix_pkg.vhd:41:14:note: canonicalize package body "pixel_matrix_pkg"
+test_op.vhd:23:14:note: canonicalize architecture "rtl" of "test_op"
+../../src/std/textio_body.v08:18:14:note: analyze package body "textio"
+../../src/std/textio_body.v08:18:14:note: canonicalize package body "textio"
+../../src/ieee2008/std_logic_1164-body.vhdl:51:14:note: analyze package body "std_logic_1164"
+../../src/ieee2008/std_logic_1164-body.vhdl:51:14:note: canonicalize package body "std_logic_1164"
+../../src/ieee2008/numeric_std-body.vhdl:62:14:note: analyze package body "numeric_std"
+../../src/ieee2008/numeric_std-body.vhdl:62:14:note: canonicalize package body "numeric_std"
+ghdl:note: List of units in the hierarchy design:
+ghdl:note:  package "textio"
+ghdl:note:  package body "textio"
+ghdl:note:  package "std_logic_1164"
+ghdl:note:  package body "std_logic_1164"
+ghdl:note:  package "numeric_std"
+ghdl:note:  package body "numeric_std"
+ghdl:note:  entity "test_op"
+ghdl:note:  package "pixel_pkg"
+ghdl:note:  package body "pixel_pkg"
+ghdl:note:  package "pixel_column_pkg"
+ghdl:note:  package body "pixel_column_pkg"
+ghdl:note:  package "pixel_matrix_pkg"
+ghdl:note:  package body "pixel_matrix_pkg"
+ghdl:note:  architecture "rtl" of "test_op"
+ghdl:note:  default configuration of test_op(rtl)
+../../src/std/textio.v08:19:1:note: translating (with code generation) package "textio"
+../../src/std/textio_body.v08:18:1:note: translating (with code generation) package body "textio"
+../../src/ieee2008/std_logic_1164.vhdl:51:1:note: translating (with code generation) package "std_logic_1164"
+../../src/ieee2008/std_logic_1164-body.vhdl:51:1:note: translating (with code generation) package body "std_logic_1164"
+../../src/ieee2008/numeric_std.vhdl:62:1:note: translating (with code generation) package "numeric_std"
+../../src/ieee2008/numeric_std-body.vhdl:62:1:note: translating (with code generation) package body "numeric_std"
+test_op.vhd:1:1:note: translating (with code generation) entity "test_op"
+pixel_pkg.vhd:1:1:note: translating (with code generation) package "pixel_pkg"
+pixel_pkg.vhd:36:1:note: translating (with code generation) package body "pixel_pkg"
+pixel_column_pkg.vhd:1:1:note: translating (with code generation) package "pixel_column_pkg"
+pixel_column_pkg.vhd:36:1:note: translating (with code generation) package body "pixel_column_pkg"
+pixel_matrix_pkg.vhd:1:1:note: translating (with code generation) package "pixel_matrix_pkg"
+pixel_matrix_pkg.vhd:41:1:note: translating (with code generation) package body "pixel_matrix_pkg"
+
+******************** GHDL Bug occured ****************************
+Please report this bug on https://github.com/tgingold/ghdl/issues
+GHDL release: GHDL 0.35-dev (2017-03-01-450-g2b61f51) [Dunoon edition]
+Compiled with GNAT Version: 4.9.3
+Target: x86_64-linux-gnu
+In directory: /media/secondary_ssd/project_spring_2017/17S-Loiselle-HW-Image-Processing/program/hdl/RTL/BUG_REPRODUCTION/ghdl_internal_error_issue/
+Command line:
+ghdl -e -v -v --std=08 --warn-library --warn-delayed-checks --warn-specs --warn-unused --warn-nested-comment --warn-parenthesis --warn-runtime-error test_op
+Exception TYPES.INTERNAL_ERROR raised
+Exception information:
+Exception name: TYPES.INTERNAL_ERROR
+Message: trans.adb:547
+Call stack traceback locations:
+0x60e35b 0x60e749 0x60e9ce 0x663244 0x663343 0x648ed6 0x64945c 0x648ee4 0x64945c 0x6498ad 0x649dfc 0x649f03 0x6513a3 0x668ed9 0x651196 0x66a349 0x617ab2 0x672d66 0x6226f2 0x6775ea 0x680f5e 0x67deec 0x4ed9d3 0x40964f 0x7f8fdaa5e82e 0x408427 0xfffffffffffffffe
+******************************************************************
