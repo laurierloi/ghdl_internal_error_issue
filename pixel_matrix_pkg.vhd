@@ -44,9 +44,9 @@ package body pixel_matrix_pkg is
     return TYPE_PIXEL_MATRIX_IN is
         variable pixel_matrix_in : TYPE_PIXEL_MATRIX_IN; 
     begin
---        for row in 0 to NBR_OF_COL_IN loop
-            --pixel_matrix_in(col) := std_logic_vector_to_pixel_column_in(in_vector((col+1)*NBR_OF_ROW_IN*NBR_OF_CHROMA_IN*NBITS_IN-1 downto col*NBR_OF_ROW_OUT*NBR_OF_CHROMA_IN*NBITS_IN));
---        end loop;
+        for col in 0 to NBR_OF_COL_IN-1 loop
+            pixel_matrix_in(col) := std_logic_vector_to_pixel_column_in(in_vector((col+1)*NBR_OF_ROW_IN*NBR_OF_CHROMA_IN*NBITS_IN-1 downto col*NBR_OF_ROW_OUT*NBR_OF_CHROMA_IN*NBITS_IN));
+        end loop;
         return pixel_matrix_in;
     end function std_logic_vector_to_pixel_matrix_in;
 
@@ -54,7 +54,7 @@ package body pixel_matrix_pkg is
     return std_logic_vector is
         variable out_vector : std_logic_vector(NBR_OF_COL_OUT*NBR_OF_ROW_OUT*NBR_OF_CHROMA_OUT*NBITS_OUT-1 downto 0);
     begin
-        for col in 0 to NBR_OF_COL_OUT loop
+        for col in 0 to NBR_OF_COL_OUT-1 loop
             out_vector(((col+1)*NBR_OF_ROW_IN*NBR_OF_CHROMA_IN)*NBITS_IN-1 downto col*NBR_OF_ROW_OUT*NBR_OF_CHROMA_IN*NBITS_IN) := pixel_column_out_to_std_logic_vector(out_pixel_matrix(col));
         end loop;
         return out_vector;
@@ -64,7 +64,7 @@ package body pixel_matrix_pkg is
             return TYPE_PIXEL_MATRIX_OUT is
         variable pixel_matrix_out : TYPE_PIXEL_MATRIX_OUT;
     begin
-        for index in pixel_matrix_in'range loop
+        for index in 0 to NBR_OF_COL_IN-1 loop
             pixel_matrix_out(index) := not pixel_matrix_in(index);
         end loop;
         return pixel_matrix_out;
